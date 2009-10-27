@@ -69,7 +69,7 @@ AppAsset::register($this);
                             <a>MEDIA COVERAGE</A>
                         </LI>
                         <LI>
-                            <a>TESTIMONIALS</A>
+                            <A href='?r=site/testimonials'>TESTIMONIALS</A>
                         </LI>
                         <LI>
                             <a>CONTACT US</A>

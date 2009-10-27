@@ -296,3 +296,42 @@ a:hover, a:focus {
     height: 480px;
     width: 480px;
 }
+.front-page-image{
+    text-align:center;
+}
+.front-page-image img{
+    width:65%;
+    height:450px
+}
+.front-page-image-text{
+    float:left;
+    width: 100%
+}
+.front-page-image-text div {
+    background-color: rgb(233, 233, 233);
+    border-bottom-color: rgba(100, 24, 11, 0.14);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: rgb(69, 69, 69);
+    cursor: pointer;
+    font-family: Roboto, arial;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    float:left;
+}
+.active-image{
+    border-bottom-color: rgba(100, 24, 11, 0.43) !important;
+}
+.content-wrapper{
+    padding: 10px;
+    border: 1px solid lightgrey;
+    font-size: 14px;
+    FONT-STYLE: ITALIC;
+    FONT-FAMILY: monospace;
+    COLOR: BLACK;    
+    MARGIN-TOP: 20PX;
+}
+.author-info{
+    color:blue
+}

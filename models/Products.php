@@ -32,6 +32,7 @@ class Products extends \yii\db\ActiveRecord
             'product_description' => 'Product Description',
             'how_to_use' => 'How To Use',
             'price' => 'Price',
+            'fron_page_view' => 'Front Page View',
             'created_at' => 'Created At',
         ];
     }

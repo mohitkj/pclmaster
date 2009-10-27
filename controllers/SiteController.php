@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Category;
 use app\models\Products;
+use app\models\Testimonials;
 
 class SiteController extends Controller
 {
@@ -65,7 +66,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $products = Products::find()->where(array( 'front_page_view'=>1) )->all();            
+        return $this->render('index',array('products'=>$products));
     }
     
     /**
@@ -120,6 +122,14 @@ class SiteController extends Controller
 
             return $this->render('product', array('product' => $product));
         }
+    }
+    
+    public function actionTestimonials() {
+        $testimonials = Testimonials::find()->where(array('approved'=>1));        
+        $pages = new Pagination(['totalCount' => $testimonials->count()]);
+        $pages->defaultPageSize = 7;
+        $testimonials = $testimonials->offset($pages->offset)->limit($pages->limit)->all();
+        return $this->render('testimonials', array('testimonials' => $testimonials, 'pages' => $pages));
     }
 
     /**
