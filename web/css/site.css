@@ -132,7 +132,7 @@ a.desc:after {
 .navbar-internal li a:hover{ 
     cursor: pointer
 }
-.social-media a{ background-image: url(../icons/socialimedia.png);
+.social-media a{ background-image: url(socialimedia.png);
                  background-repeat: no-repeat;
                  height: 23px;
                  width: 27px;
