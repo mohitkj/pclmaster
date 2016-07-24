@@ -1,1 +1,1 @@
-<script src="../web/js/site.js"></script>
+<script src="js/site.js"></script>

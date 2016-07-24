@@ -19,7 +19,7 @@ AppAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <script src="../web/js/jquery-3.1.0.min.js"></script>
+        <script src="js/jquery-3.1.0.min.js"></script>
 
     </head>
     <body>
