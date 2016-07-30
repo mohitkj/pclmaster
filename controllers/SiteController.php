@@ -6,11 +6,17 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\data\Pagination ;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Category;
+use app\models\Products;
+
 
 class SiteController extends Controller
 {
+    public $pageLimit = 3;
+    public $params;
     /**
      * @inheritdoc
      */
@@ -61,6 +67,36 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionListing()
+    {        
+        $category = isset( $_REQUEST['category'] ) ? $_REQUEST['category'] : '';
+        
+        Yii::$app->view->params['breadcrumbs'] = [
+            [
+                'label' => $category,
+                'url' => [''],
+                'template' => "<li><b>{link}</b></li>\n", // template for this link only
+            ]            
+        ];
+        Yii::$app->view->params['page_title'] = $category;
+        
+        if( !empty($category)){
+            $categoryId = Category::findOne(array('category_name'=>$category))['category_id'];            
+            $products = Products::find()->where(array( 'product_category'=>$categoryId) );            
+            $pages = new Pagination(['totalCount' => $products->count()]); 
+            $pages->defaultPageSize = $this->pageLimit;
+            $products = $products->orderBy(array('priority'=>'desc'))->offset($pages->offset)->limit($pages->limit)->all();             
+            return $this->render('listing', array('products'=>$products,'pages'=>$pages,'category' => $category ,'categoryId'=>$categoryId));
+        }else{
+            return $this->render('index');
+        }
     }
 
     /**

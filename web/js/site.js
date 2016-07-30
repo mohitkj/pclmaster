@@ -1,7 +1,7 @@
 $(document).ready(function () {
     setTimeout(function () {
         showCall()
-    }, 3000)
+    }, 3000);
 });
 $('.navbar-1 li').on('mouseover', function () {
     $('.navbar-internal').hide();
@@ -10,12 +10,19 @@ $('.navbar-1 li').on('mouseover', function () {
         'display': '',
         'position': 'absolute',
         'left': $(this).offset().left,
-        'top': $(this).offset().top + $(this).parent().height(),
+        'top': $(this).offset().top + $(this).parent().height()-$('body').scrollTop()-60,
         'width': $(this).width()
     })
 })
 $(document).on('click', function () {
     $('.navbar-internal').fadeOut();
+});
+$(document).on('scroll',function(){
+   $('.nav-container').css({'top':$('body').scrollTop() -55 })
+   $('.breadcrumb').css({'top':$('body').scrollTop() + 65 + $('.navbar-1').height()+ 5})
+   $('.page-title').css({'top':$('body').scrollTop() + 65 + $('.navbar-1').height()+ 5})
+   $('.social-media,.book-appointment').css({'top':$('body').scrollTop()+20 })
+   $('.empty-div').css({'top':$('body').scrollTop()})
 });
 var index = 0;
 function showCall() {

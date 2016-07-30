@@ -14,7 +14,8 @@ body {
     padding: 70px 15px 5px;
     border-bottom: 1px solid lightgray;
     margin: 0px;
-    width:100%
+    width:100%;
+    padding-top: 0px
 }
 
 .footer {
@@ -98,6 +99,9 @@ a.desc:after {
     float:left;
     list-style: none ;
     margin-top:-5px;
+    position:absolute;
+    z-index:1;
+    top:70px    
 }
 .navbar-1 > li { float:left ;
                  color: #292828;
@@ -119,6 +123,7 @@ a.desc:after {
     list-style: none;
     padding:0px;
     margin-top: 15px;
+    z-index:1
 }
 .navbar-internal li{
     float:none;
@@ -140,11 +145,13 @@ a.desc:after {
                  transition: all 0.6s ease 0s;
                  height: 22px;
                  width: 24px;
+                 z-index: 3
 
 }
 .social-media{ position: absolute;
                top: 20px;
-               right: 225px; }
+               right: 225px;
+z-index: 3}
 .facebook-icon{ 
     background-position: 3px top;
     margin-left: 5px 
@@ -180,9 +187,89 @@ a.desc:after {
     top: 20px;
     position: absolute;
     right: 20px;
+    z-index: 3
 }
 .book-appointment a{ 
     color:white;
     text-decoration: none;
     font-weight: 600
+}
+.product-name a{
+    color:black;
+    text-decoration: none
+}
+.product-name a:hover{
+    color:blue;
+}
+.products-list{
+    list-style: none;
+    clear: both;
+    width: 90%;
+    padding-left:3%;    
+    position: relative;
+    z-index: 1;
+    margin-top: 50px
+}
+.products-list li{
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
+    padding: 1.5em 8px;
+}
+.review-price-block{
+    height: 60px;
+}
+.price-box{
+    padding-top: 15px;
+}
+.price{
+    color: #222222;
+    font-size: 15px;
+}
+a:hover, a:focus {
+    color: #597ab2;
+    text-decoration: none;
+}
+.learn-more{
+    color: orange;
+    opacity: 0.7;
+}
+.top-header{
+    display:block;
+    height: 100px
+}
+.top-header,.breadcrumbs-wrapper{
+    background: white
+}
+.social-media-container{
+    height: 50px;
+}
+.empty-div{
+    width: 70%;
+    height: 50px;
+    top: 20px;
+    position: absolute;
+    background: white;
+    z-index: 2
+}
+.nav-container{
+    background: white;
+    position:relative;
+    z-index:2;
+    height:120px;
+    top:-55px
+}
+.page-title{
+    width:200px;
+    padding-left: 30px;
+    background: white;
+    position:absolute;
+    z-index:2
+}
+.breadcrumb{
+    position:absolute;
+    z-index:2;
+    float:right ;
+    right:110px;
+    top:98px
 }
