@@ -27,6 +27,7 @@ AppAsset::register($this);
         <div class="wrap">         
             <div class="top-header">
                 <div class="social-media-container">
+                    <img src="logo.jpg" style="height: 55px;position: fixed;top: 0px;z-index: 1000;width: 250px;margin-left: 25px;"/>
                     <div class="empty-div"></DIV>
                     <div class="social-media">
                         <a href="https://www.facebook.com/" title="Find us On Facebook" class="facebook-icon" target="_blank"></a> 
@@ -63,6 +64,9 @@ AppAsset::register($this);
                         </LI>
                         <LI>
                             <a>WHATS NEW</A>
+                        </LI>
+                        <LI>
+                            <a>MEDIA COVERAGE</A>
                         </LI>
                         <LI>
                             <a>TESTIMONIALS</A>

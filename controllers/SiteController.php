@@ -12,7 +12,6 @@ use app\models\ContactForm;
 use app\models\Category;
 use app\models\Products;
 
-
 class SiteController extends Controller
 {
     public $pageLimit = 3;
@@ -81,7 +80,7 @@ class SiteController extends Controller
         Yii::$app->view->params['breadcrumbs'] = [
             [
                 'label' => $category,
-                'url' => [''],
+                'url' => ['site/listing', 'category' => $category],
                 'template' => "<li><b>{link}</b></li>\n", // template for this link only
             ]            
         ];
@@ -96,6 +95,30 @@ class SiteController extends Controller
             return $this->render('listing', array('products'=>$products,'pages'=>$pages,'category' => $category ,'categoryId'=>$categoryId));
         }else{
             return $this->render('index');
+        }
+    }
+    
+    public function actionProduct(){
+        $product_id = isset( $_REQUEST['product_id'] ) ? $_REQUEST['product_id'] : '';
+        
+        if (!empty($product_id)) {
+            $product = Products::findOne(array('product_id' => $product_id));
+            $category = Category::findOne(array('category_id' => $product->product_category));
+            
+            Yii::$app->view->params['breadcrumbs'] = [
+                [
+                    'label' => ucfirst( $category->category_name  ),
+                    'url' => ['site/listing', 'category' => $category->category_name],
+                    'template' => "<li><b>{link}</b></li>\n", // template for this link only
+                ],
+                [
+                    'label' => ucfirst( strtolower($product->product_name) ),
+                    'url' => ['site/product', 'product_id' => $product->product_id],
+                    'template' => "<li><b>{link}</b></li>\n", // template for this link only
+                ],
+            ];
+
+            return $this->render('product', array('product' => $product));
         }
     }
 

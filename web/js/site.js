@@ -10,7 +10,7 @@ $('.navbar-1 li').on('mouseover', function () {
         'display': '',
         'position': 'absolute',
         'left': $(this).offset().left,
-        'top': $(this).offset().top + $(this).parent().height()-$('body').scrollTop()-60,
+        'top': $(this).offset().top + $(this).parent().height()-$('body').scrollTop() - 70,
         'width': $(this).width()
     })
 })

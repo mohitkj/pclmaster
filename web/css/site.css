@@ -101,7 +101,10 @@ a.desc:after {
     margin-top:-5px;
     position:absolute;
     z-index:1;
-    top:70px    
+    top:70px;
+    background-color: rgba(24, 242, 18, 0.59);
+    width: 96%;
+    margin-left: 2%;
 }
 .navbar-1 > li { float:left ;
                  color: #292828;
@@ -111,7 +114,8 @@ a.desc:after {
                  line-height: normal;
                  height: 28px !important;
                  height: auto;               
-                 padding: 13px 11px;}
+                 padding:5px
+}
 .navbar-1 > li a:hover{cursor: pointer;
                        text-decoration: none;
                        color:rgb(244, 111, 34)}
@@ -199,16 +203,19 @@ z-index: 3}
     text-decoration: none
 }
 .product-name a:hover{
-    color:blue;
+    color:#73B0D0 !important
+}
+.price:hover{
+    color:#73B0D0 !important
 }
 .products-list{
     list-style: none;
     clear: both;
-    width: 90%;
+    width: 96%;
     padding-left:3%;    
     position: relative;
     z-index: 1;
-    margin-top: 50px
+    margin-top: 35px
 }
 .products-list li{
     border: solid 1px #ddd;
@@ -270,6 +277,22 @@ a:hover, a:focus {
     position:absolute;
     z-index:2;
     float:right ;
-    right:110px;
-    top:98px
+    right:45px;
+    top:98px;
+    background: rgba(192, 192, 192, 0.2);
+}
+.btn-read-more{
+    color:#f66d52;
+    background: lightyellow !important;
+}
+.product-shop{
+    height:240px;
+}
+.product-image{
+    height:260px;
+    width:360px
+}
+.product-image-inner{
+    height: 480px;
+    width: 480px;
 }
