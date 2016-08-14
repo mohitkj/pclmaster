@@ -21,7 +21,7 @@ AppAsset::register($this);
         <?php $this->head() ?>
         <script src="js/jquery-3.1.0.min.js"></script>        
     </head>
-    <body>
+    <body style="overflow-x: hidden">
         <?php $this->beginBody() ?>
 
         <div class="wrap">         
@@ -30,13 +30,15 @@ AppAsset::register($this);
                     <img src="logo.jpg" style="height: 55px;position: fixed;top: 0px;z-index: 1000;width: 250px;margin-left: 25px;"/>
                     <div class="empty-div"></DIV>
                     <div class="social-media">
-                        <a href="https://www.facebook.com/" title="Find us On Facebook" class="facebook-icon" target="_blank"></a> 
+                        <a href="https://www.facebook.com/ANJALIS-HERBAVEDIC-893299144064608/" title="Find us On Facebook" class="facebook-icon" target="_blank"></a> 
                         <a href="https://twitter.com/" title="Find us On Twitter" class="twitter-icon" target="_blank"></a> 
                         <a href="http://www.youtube.com/" title="Find us On Youtube" class="you-tube-icon" target="_blank"></a> 
                         <a href="javascript:void(0)" title="" class="call-icon" target="_blank"></a> 
-                        <div class="call-us">Call:+91-9711100337</div>
-                        <div class="call-us" style="display:none">Call:+91-9810880657</div>
-                        <div class="call-us" style="display:none">Call:+91-9711482445</div>
+                        <div style="float:left;width: 110px;margin-top: -15px;">
+                            <div style="float:left;font-size: 13px;" class="call-us">+91-9711100337</div>
+                            <div style="float:left;font-size: 13px;" class="call-us">+91-9810880657</div>
+                            <div style="float:left;font-size: 13px;" class="call-us">+91-9711482445</div>
+                        </div>
                     </div>
                     <div class="book-appointment"><a href="javascript:void(0);" >BOOK AN APPOINTMENT</a> </div>
                 </div>
@@ -46,7 +48,7 @@ AppAsset::register($this);
                             <a href="?r=site">HOME</A>
                         </LI>
                         <LI>
-                            <A>ABOUT US</A>
+                            <A href='?r=site/about' >ABOUT US</A>
                         </LI>
                         <LI id="bm">
                             <A>BEAUTY MANAGEMENT &#9662;</A>
@@ -62,11 +64,11 @@ AppAsset::register($this);
                                 </LI>
                             </UL>
                         </LI>
-                        <LI>
+<!--                        <LI>
                             <a>WHATS NEW</A>
-                        </LI>
+                        </LI>-->
                         <LI>
-                            <a>MEDIA COVERAGE</A>
+                            <a href='?r=site/media'>MEDIA COVERAGE</A>
                         </LI>
                         <LI>
                             <A href='?r=site/testimonials'>TESTIMONIALS</A>
@@ -93,7 +95,7 @@ AppAsset::register($this);
         </div>
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; Anjali's Herbavedics  <?= date('Y') ?></p>
+                <p class="pull-left">&copy; Anjali's Herbavedics  <?= date('Y') ?>. All rights reserved.</p>
 
                 <p class="pull-right"></p>
             </div>

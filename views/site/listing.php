@@ -60,6 +60,7 @@ echo LinkPager::widget([
     'pagination' => $pages,
 ]);
 ?>
+<?php echo $this->render('bottomtestimonials', array('testimonials' => $testimonials)); ?>
 <script src="js/site.js"></script>
 <style>
 .btn-read-more:hover,.btn-default:hover{

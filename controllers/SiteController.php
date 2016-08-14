@@ -66,8 +66,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $products = Products::find()->where(array( 'front_page_view'=>1) )->all();            
-        return $this->render('index',array('products'=>$products));
+        $products = Products::find()->where(array( 'front_page_view'=>1) )->all();
+        $testimonials = Testimonials::find()->where(array('approved'=>1,'front_page_view'=>1))->all();        
+
+        return $this->render('index',array('products'=>$products,'testimonials'=>$testimonials));
     }
     
     /**
@@ -91,10 +93,11 @@ class SiteController extends Controller
         if( !empty($category)){
             $categoryId = Category::findOne(array('category_name'=>$category))['category_id'];            
             $products = Products::find()->where(array( 'product_category'=>$categoryId) );            
+            $testimonials = Testimonials::find()->where(array('approved'=>1,'front_page_view'=>1))->all();        
             $pages = new Pagination(['totalCount' => $products->count()]); 
             $pages->defaultPageSize = $this->pageLimit;
             $products = $products->orderBy(array('priority'=>'desc'))->offset($pages->offset)->limit($pages->limit)->all();             
-            return $this->render('listing', array('products'=>$products,'pages'=>$pages,'category' => $category ,'categoryId'=>$categoryId));
+            return $this->render('listing', array('products'=>$products,'pages'=>$pages,'category' => $category ,'categoryId'=>$categoryId,'testimonials'=>$testimonials));
         }else{
             return $this->render('index');
         }
@@ -105,8 +108,9 @@ class SiteController extends Controller
         
         if (!empty($product_id)) {
             $product = Products::findOne(array('product_id' => $product_id));
-            $category = Category::findOne(array('category_id' => $product->product_category));
-            
+            $category = Category::findOne(array('category_id' => $product->product_category));                        
+            $testimonials = Testimonials::find()->where(array('approved'=>1,'front_page_view'=>1))->all();        
+
             Yii::$app->view->params['breadcrumbs'] = [
                 [
                     'label' => ucfirst( $category->category_name  ),
@@ -120,7 +124,7 @@ class SiteController extends Controller
                 ],
             ];
 
-            return $this->render('product', array('product' => $product));
+            return $this->render('product', array('product' => $product,'testimonials'=>$testimonials));
         }
     }
     
@@ -189,6 +193,12 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $testimonials = Testimonials::find()->where(array('approved'=>1,'front_page_view'=>1))->all();        
+        return $this->render('about',array('testimonials'=>$testimonials));
+    }
+    
+    public function actionMedia(){
+        $testimonials = Testimonials::find()->where(array('approved'=>1,'front_page_view'=>1))->all();        
+        return $this->render('media',array('testimonials'=>$testimonials));
     }
 }

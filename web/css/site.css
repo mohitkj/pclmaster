@@ -331,7 +331,15 @@ a:hover, a:focus {
     FONT-FAMILY: monospace;
     COLOR: BLACK;    
     MARGIN-TOP: 20PX;
+    display:inline-block;
+    width:100%
 }
 .author-info{
     color:blue
+}
+.message-wrapper{
+    width:100%
+}
+.testimonial-view-all:hover{
+    color:orange
 }

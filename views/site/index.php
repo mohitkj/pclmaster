@@ -28,5 +28,6 @@ foreach ($products as $index => $product) {
         <DIV class="image-text <?php echo $activeClass; ?>" onclick='showImageClick(<?php echo $index; ?>)' style="width:<?php echo 100 / count($products); ?>%"><?php echo ucfirst(strtolower($product->product_name)); ?></DIV>
         <?php } ?>
 </DIV>
+<?php echo $this->render('bottomtestimonials', array('testimonials' => $testimonials)); ?>
 <script src="js/site.js"></script>
 
